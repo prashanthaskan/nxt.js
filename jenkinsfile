@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                // Clone the GitHub repository
-                git 'https://github.com/prashanthaskan/nxt.js'
+                // Clone the GitHub repository from the staging branch
+                git branch: 'staging', url: 'https://github.com/prashanthaskan/nxt.js'
             }
         }
 
@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-                stage('Deploy Changed Files') {
+        stage('Deploy Changed Files') {
             steps {
                 script {
                     // Define the target directory
